@@ -36,3 +36,5 @@ algorithm/x64/*
 algorithm/Debug/*
 Debug/*
 x64/*
+algorithm/algorithm.vcxproj
+algorithm/algorithm.vcxproj.filters
