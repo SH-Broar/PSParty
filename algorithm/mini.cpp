@@ -1,34 +1,49 @@
 #include <iostream>
 #include <vector>
-#include <numeric>
 using namespace std;
 
 int main()
 {
 	cin.tie(NULL);
 	cout.tie(NULL);
-	cin.sync_with_stdio(false);
+	ios::sync_with_stdio(false);
 
-	int total;
-	cin >> total;
-
-	vector<int> v;
-	int n;
-	cin >> n;
-
-	for (int i = 0; i < n; ++i)
+	int n, m;
+	cin >> n >> m;
+	vector<vector<int>> a;
+	vector<vector<int>> b;
+	a.resize(n);
+	b.resize(n);
+	for (int i = 0; i < n; i++)
 	{
-		int tmp, tmpn;
-		cin >> tmp >> tmpn;
-		v.push_back(tmp*tmpn);
-	}
-	if (total == accumulate(v.begin(), v.end(), 0))
-	{
-		cout << "Yes";
-	}
-	else
-	{
-		cout << "No";
+		a[i].resize(m);
+		b[i].resize(m);
 	}
 
+	int t;
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < m; j++)
+		{
+			cin >> t;
+			a[i][j] = t;
+		}
+	}
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < m; j++)
+		{
+			cin >> t;
+			b[i][j] = t;
+		}
+	}
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < m; j++)
+		{
+			cout << a[i][j] + b[i][j] << " ";
+		}
+		cout << "\n";
+	}
+	
 }
