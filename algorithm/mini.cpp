@@ -1,5 +1,5 @@
 #include <iostream>
-#include <vector>
+#include <string>
 using namespace std;
 
 int main()
@@ -8,42 +8,25 @@ int main()
 	cout.tie(NULL);
 	ios::sync_with_stdio(false);
 
-	int n, m;
-	cin >> n >> m;
-	vector<vector<int>> a;
-	vector<vector<int>> b;
-	a.resize(n);
-	b.resize(n);
-	for (int i = 0; i < n; i++)
+	int result = 0;
+	for (int i = 0; i < 5; i++)
 	{
-		a[i].resize(m);
-		b[i].resize(m);
+		string s;
+		cin >> s;
+
+		for (int c = 0; c < s.size() - 2; c++)
+		{
+			if (s[c] == 'F' && s[c+1] == 'B' && s[c+2] == 'I')
+			{
+				cout << i + 1 << " ";
+				result++;
+				break;
+			}
+		}
 	}
 
-	int t;
-	for (int i = 0; i < n; i++)
+	if (result == 0)
 	{
-		for (int j = 0; j < m; j++)
-		{
-			cin >> t;
-			a[i][j] = t;
-		}
+		cout << "HE GOT AWAY!";
 	}
-	for (int i = 0; i < n; i++)
-	{
-		for (int j = 0; j < m; j++)
-		{
-			cin >> t;
-			b[i][j] = t;
-		}
-	}
-	for (int i = 0; i < n; i++)
-	{
-		for (int j = 0; j < m; j++)
-		{
-			cout << a[i][j] + b[i][j] << " ";
-		}
-		cout << "\n";
-	}
-	
 }
