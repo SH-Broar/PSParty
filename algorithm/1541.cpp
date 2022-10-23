@@ -1,5 +1,6 @@
 #include <iostream>
-
+#include <vector>
+#include <string>
 using namespace std;
 
 int main()
@@ -9,10 +10,38 @@ int main()
 	ios::sync_with_stdio(false);
 
 
-	int n;
-	cin >> n;
-	for (int i = 0; i < n; ++i)
-	{
+	string theme;
+	cin >> theme;
+	
+	int p = 0;
+	bool flag = false;
+	int ret = 0;
 
+	for (auto c : theme)
+	{
+		if (c >= '0' && c <= '9')
+		{
+			p *= 10;
+			p += c - '0';
+		}
+		else
+		{
+			if (!flag)
+			{
+				ret += p;
+			}
+			else
+			{
+				ret -= p;
+			}
+			if (c=='-')
+				flag = true;
+			p = 0;
+		}
 	}
+	if (flag)
+		ret -= p;
+	else
+		ret += p;
+	cout << ret;
 }
